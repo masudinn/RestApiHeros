@@ -76,7 +76,7 @@ class Auth extends BaseController
         ]);
 
         if ($this->form_validation->run() == false) {
-            $this->responseFailed('Proses login gagal', 'errorValidation', $this->form_validation->error_array());
+            $this->responseFailed('Proses registrasi gagal', 'errorValidation', $this->form_validation->error_array());
             return false;
         }
 
@@ -102,7 +102,7 @@ class Auth extends BaseController
             $this->db->trans_commit();
         } catch (\Throwable $th) {
             $this->db->trans_rollback();
-            $this->responseFailed('Proses login gagal', $th->getMessage());
+            $this->responseFailed('Proses registrasi gagal', $th->getMessage());
         }
     }
 }
